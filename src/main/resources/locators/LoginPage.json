@@ -1,0 +1,63 @@
+{
+  "comment": "Top layer components",
+
+  "Banner": {
+
+  },
+
+  "Bar": {
+
+    "comment": "Can have buttons",
+    "Buttons": {
+      "comment": "Interactible buttons on Bar component",
+
+      "Notification": {
+        "comment": "notification button",
+
+        "android": {
+          "id": ""
+        },
+
+        "ios": {
+          "accessibilityId": ""
+        },
+
+        "web": {
+          "xpath": ""
+        }
+      },
+
+      "Profile": {
+        "comment": "Profile button",
+
+        "android": {
+          "id": ""
+        },
+
+        "ios": {
+          "accessibilityId": ""
+        },
+
+        "web": {
+          "xpath": ""
+        }
+      }
+    }
+  },
+
+  "Buttons": {},
+
+  "Cards": {},
+
+  "Carousal": {},
+
+  "Chat Message": {},
+
+  "Color Picker": {},
+
+  "Form Components": {},
+
+  "Table": {},
+
+  "Ratings": {}
+}

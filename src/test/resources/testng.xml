@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="App Automation Test Suite" parallel="methods" thread-count="2">
+
+    <listeners>
+        <listener class-name="org.aj.core.listeners.CustomerTestListener" />
+    </listeners>
+
+
+    <test name="Sample Test - 1">
+        <classes>
+            <class name="org.aj.tests.LoginTest"/>
+        </classes>
+    </test>
+</suite>
