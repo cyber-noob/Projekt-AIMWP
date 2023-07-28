@@ -6,12 +6,13 @@ import org.aj.core.preTestInits.DriverManager;
 import org.testng.*;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
-public class CustomerTestListener implements ITestListener, ISuiteListener {
+import static org.aj.core.preTestInits.DriverManager.automationType;
+
+public class CustomerTestListener implements ITestListener, ISuiteListener, IMethodInterceptor {
 
     DriverManager driverManager = new DriverManager();
 
@@ -120,5 +121,40 @@ public class CustomerTestListener implements ITestListener, ISuiteListener {
     @Override
     public void onFinish(ITestContext context) {
         ITestListener.super.onFinish(context);
+    }
+
+    /**
+     * Filter out platform specific tests from suite using annotation processing
+     * @param methods
+     * @param context
+     * @return
+     */
+    @Override
+    public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext context) {
+        String currentAutomation = switch (automationType){
+            case "android": {
+                yield "Android";
+            }
+            case "ios":{
+                yield "IOS";
+            }
+            case "web":{
+                yield "Web";
+            }
+            case "msite":{
+                yield "Msite";
+            }
+            default:
+                throw new IllegalStateException("Unexpected value: " + automationType);
+        };
+
+        return methods.stream()
+                .filter(method -> Arrays.stream(method.getMethod()
+                        .getConstructorOrMethod()
+                        .getMethod()
+                        .getAnnotations())
+                        .toList()
+                        .contains(currentAutomation))
+                .collect(Collectors.toList());
     }
 }

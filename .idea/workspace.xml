@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e02ac46f-9985-479c-904b-e32b6aa0dcb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/businessLogics/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/configs/PropsRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/MailContentPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/SearchPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/records/Mail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/MissingLocatorFileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/MissingMandatoryPropException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/PackageNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/UnknownAutomationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorFinderHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorRepoManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/platformHandlers/Android.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/propertiesHandler/Mandatory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/propertiesHandler/PropertiesManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/locators/Components.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/locators/HomePage.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/businessLogics/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/LoginPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/AppiumWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/AppiumWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configs/properties.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/locators/LoginPage.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/aj/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aj/tests/HomePageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
