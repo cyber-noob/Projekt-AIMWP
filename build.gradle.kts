@@ -20,6 +20,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.json/json
     implementation("org.json:json:20230618")
     implementation("com.github.vidstige:jadb:v1.2.1")
+    // https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path
+    implementation("com.jayway.jsonpath:json-path:2.8.0")
 }
 
 tasks.test {

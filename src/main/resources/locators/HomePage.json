@@ -1,0 +1,51 @@
+{
+	"comment": "Top layer components | Please ignore the empty components as they are supposed to showcase what's possible",
+
+	"Banner": {
+
+	},
+
+	"Bar": {
+
+	},
+
+	"Buttons": {},
+
+	"Cards": {
+		"MailBoxes": {
+			"ParentComponent": {
+				"android": {
+					"id": "com.google.android.gm:id/folder_teaser_row"
+				}
+			},
+
+			"ios": {},
+
+			"web": {}
+		},
+
+		"Mails": {
+			"ParentComponent": {
+				"android": {
+					"id": "com.google.android.gm:id/viewified_conversation_item_view"
+				}
+			},
+
+			"ios": {},
+
+			"web": {}
+		}
+	},
+
+	"Carousal": {},
+
+	"Chat Message": {},
+
+	"Color Picker": {},
+
+	"Form Components": {},
+
+	"Table": {},
+
+	"Ratings": {}
+}

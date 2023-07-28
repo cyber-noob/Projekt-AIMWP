@@ -5,34 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e02ac46f-9985-479c-904b-e32b6aa0dcb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configure.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/DtypeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/AppiumWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/Capabilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/MyDesiredCapabilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/configs/properties.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/aj/tests/LoginTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/businessLogics/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/configs/PropsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/HomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/MailContentPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/SearchPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/records/Mail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/MissingLocatorFileException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/MissingMandatoryPropException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/PackageNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/Exceptions/UnknownAutomationType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorFinderHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorRepoManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/platformHandlers/Android.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/propertiesHandler/Mandatory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/propertiesHandler/PropertiesManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/locators/Components.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/locators/HomePage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/businessLogics/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/LoginPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/AppiumWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/AppiumWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/configs/properties.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locators/LoginPage.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/aj/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aj/tests/HomePageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -102,12 +106,21 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/locators" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/locators/pages" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/aj/application/configs" />
+      <recent name="$PROJECT_DIR$/src/main/resources/configs" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Test" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="appName" value="gm" />
+          </map>
+        </option>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />

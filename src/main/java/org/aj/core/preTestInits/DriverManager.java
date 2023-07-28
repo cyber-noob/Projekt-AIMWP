@@ -4,6 +4,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
+import org.aj.core.Exceptions.MissingMandatoryPropException;
+import org.aj.core.propertiesHandler.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -20,35 +23,40 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static org.aj.core.propertiesHandler.PropertiesManager.getProperty;
+
 public class DriverManager {
 
     private static ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
 
     private static ThreadLocal<JadbDevice> deviceThreadLocal = new ThreadLocal<>();
 
-    String automationType = "android";
+    public static final String automationType = getProperty("automationType");
 
     CapabilitiesManager capabilitiesManager = new CapabilitiesManager();
 
     static JadbConnection jadbConnection = new JadbConnection();
 
-    static ConcurrentHashMap<JadbDevice, Boolean> isDriverInitialized = new ConcurrentHashMap<>();
+    static ConcurrentHashMap<JadbDevice, Boolean> isDeviceAvailable = new ConcurrentHashMap<>();
 
     static List<JadbDevice> deviceList;
 
-    ThreadLocal<URL> appiumServer = new ThreadLocal<>();
+    private static ThreadLocal<URL> appiumServer = new ThreadLocal<>();
 
     static {
         try {
+            //Get all devices
             deviceList = jadbConnection.getDevices();
+            deviceList.forEach(device -> isDeviceAvailable.put(device, true));
 
-            deviceList.forEach(device -> isDriverInitialized.put(device, false));
-        } catch (IOException | JadbException e) {
+            //Fetch all required props
+            new PropertiesManager().getAllProperties();
+
+        } catch (IOException | JadbException | MissingMandatoryPropException e) {
             throw new RuntimeException(e);
         }
     }
 
-    @BeforeTest(alwaysRun = true)
     public void initDriver() throws Exception{
 
         System.out.println("Initialising driver ...");
@@ -56,20 +64,38 @@ public class DriverManager {
 
             JadbDevice toBeUsedevice = null;
 
+            //Init device to be used for driver creation
             for (JadbDevice device: deviceList) {
-                if(!isDriverInitialized.get(device)) {
+                if(isDeviceAvailable.get(device)) {
                     toBeUsedevice = device;
-                    isDriverInitialized.replace(toBeUsedevice, true);
+                    isDeviceAvailable.replace(toBeUsedevice, false);
                     break;
                 }
+                else
+                    System.out.println("Reusing the existing driver");
             }
-            appiumServer.set(startAppiumServer());
 
+            //Init appium server
+            if(appiumServer.get() == null)
+                appiumServer.set(startAppiumServer());
+            else
+                System.out.println("Re-using the same server as it's already present");
+
+            //Init driver
             assert toBeUsedevice != null;
             switch (automationType) {
-                case "android" -> drivers.set(getAndroidDriver(appiumServer.get(), toBeUsedevice));
-                case "ios" -> drivers.set(getIosDriver(appiumServer.get()));
-                case "web" -> drivers.set(getWebDriver());
+                case "android":
+                    drivers.set(getAndroidDriver(appiumServer.get(), toBeUsedevice));
+                    deviceThreadLocal.set(toBeUsedevice);
+                    break;
+                case "ios":
+                    drivers.set(getIosDriver(appiumServer.get()));
+                    deviceThreadLocal.set(toBeUsedevice);
+                    break;
+                case "web":
+                    drivers.set(getWebDriver());
+                    deviceThreadLocal.set(toBeUsedevice);
+                    break;
             }
         }else
             System.out.println("Driver for current Thread instance is available... Hence continuing test");
@@ -81,6 +107,7 @@ public class DriverManager {
         builder.usingAnyFreePort();
         builder.usingDriverExecutable(new File("/usr/local/bin/node"));
         builder.withAppiumJS(new File("/usr/local/bin/appium"));
+        builder.withArgument(GeneralServerFlag.LOG_LEVEL, "error");
         HashMap<String, String> environment = new HashMap<>();
         environment.put("PATH", "/usr/local/bin:" + System.getenv("PATH"));
         builder.withEnvironment(environment);
@@ -92,6 +119,7 @@ public class DriverManager {
     }
 
     private WebDriver getAndroidDriver(URL appiumServer, JadbDevice device) throws Exception{
+        System.out.println("Appium server URL -> " + appiumServer);
         return new AndroidDriver(appiumServer, capabilitiesManager.AndroidCapabilities(device));
     }
 
@@ -108,13 +136,13 @@ public class DriverManager {
         return drivers.get();
     }
 
-    @AfterTest(alwaysRun = true)
     public void killDriver() {
         System.out.println("Killing driver ....");
 
         if(drivers.get() != null) {
             drivers.get().quit();
-            isDriverInitialized.replace(deviceThreadLocal.get(), false);
+            isDeviceAvailable.replace(deviceThreadLocal.get(), true);
+            drivers.remove();
         }
     }
 }

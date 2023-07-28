@@ -1,0 +1,66 @@
+{
+	"comment": "Contains all common reusable components across the application",
+	"Bar": {
+
+		"TopBar": {
+			"InputTextfield": {
+				"Search": {
+					"android": {
+						"id": "com.google.android.gm:id/open_search"
+					},
+					"ios": {
+					},
+					"web": {
+					}
+				}
+			},
+
+			"Buttons": {
+				"NavDrawer": {
+					"android": {
+						"accessibilityid": "Open navigation drawer"
+					},
+
+					"ios": {},
+
+					"web": {}
+				},
+
+				"Profile": {
+					"android": {
+						"id": "com.google.android.gm:id/og_apd_ring_view"
+					},
+
+					"ios": {},
+
+					"web": {}
+				}
+			}
+		},
+
+		"BottomBar": {
+
+			"Buttons": {
+				"Meet": {
+					"android": {
+						"id": "com.google.android.gm:id/navigation_bar_item_icon_view"
+					},
+
+					"ios": {},
+
+					"web": {}
+				},
+
+				"Mail": {
+					"android": {
+						"id": "com.google.android.gm:id/navigation_bar_item_active_indicator_view"
+					},
+
+					"ios": {},
+
+					"web": {}
+				}
+			}
+		}
+	}
+}

@@ -1,15 +1,17 @@
 package org.aj.core.listeners;
 
+import org.aj.core.Exceptions.MissingLocatorFileException;
+import org.aj.core.actionsHelper.locatorStrategy.LocatorRepoManager;
 import org.aj.core.preTestInits.DriverManager;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 
+import java.io.IOException;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class CustomerTestListener implements ITestListener {
+public class CustomerTestListener implements ITestListener, ISuiteListener {
 
     DriverManager driverManager = new DriverManager();
 
@@ -19,10 +21,41 @@ public class CustomerTestListener implements ITestListener {
 
     AtomicInteger skipCount = new AtomicInteger(0);
 
+    private static Set<String> invokedClasses = new HashSet<>();
+
+
+    public static Set<String> getInvokedClasses() {
+        return invokedClasses;
+    }
+
+    @Override
+    public void onStart(ISuite suite) {
+        ISuiteListener.super.onStart(suite);
+
+        suite.getAllInvokedMethods()
+                .forEach(iInvokedMethod -> invokedClasses.add(iInvokedMethod
+                        .getTestMethod()
+                        .getTestClass()
+                        .getName()
+                ));
+
+        //Load Locators on suite start
+        try {
+            new LocatorRepoManager().loadLocators();
+        } catch (IOException | MissingLocatorFileException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void onFinish(ISuite suite) {
+        ISuiteListener.super.onFinish(suite);
+    }
+
     @Override
     public void onTestStart(ITestResult result) {
         try {
-            new DriverManager().initDriver();
+            driverManager.initDriver();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -40,6 +73,8 @@ public class CustomerTestListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
 
+        driverManager.killDriver();
+
         passCount.addAndGet(1);
         System.out.println(result.getMethod().getMethodName() + " passed ....!");
     }
@@ -48,6 +83,8 @@ public class CustomerTestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
 
+        driverManager.killDriver();
+
         failCount.addAndGet(1);
         System.out.println(result.getMethod().getMethodName() + " failed ....!");
     }
@@ -55,6 +92,8 @@ public class CustomerTestListener implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
+
+        driverManager.killDriver();
 
         skipCount.addAndGet(1);
         System.out.println(result.getMethod().getMethodName() + " skipped ....!");
