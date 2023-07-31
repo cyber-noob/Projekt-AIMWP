@@ -40,7 +40,7 @@ Our first and foremost thing to concentrate before an automation run starts will
 
 Down below is a small flow diagram that sketches out the design for some quick reference
 
-![Alt text](imgs/Flow diagram.png?raw=true "Optional Title")
+![ScreenShot](imgs/Flow diagram.png)
 
 #### Properties Handling
 
