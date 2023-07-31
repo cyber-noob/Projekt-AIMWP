@@ -6,10 +6,10 @@
 A hybrid framework that supports  
 
 :superhero: Android  
-:superhero: :superhero: IOS  
-:superhero: :superhero: :superhero: WEB  
-:superhero: :superhero: :superhero: :superhero: MSITE  
-:superhero: :superhero: :superhero: :superhero: :superhero: PWA  
+:superhero: IOS  
+:superhero: WEB  
+:superhero: MSITE  
+:superhero: PWA  
 
 ui automation in a single repo.
 
