@@ -6,6 +6,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.aj.core.Exceptions.MissingMandatoryPropException;
+import org.aj.core.Exceptions.UnknownAutomationType;
 import org.aj.core.propertiesHandler.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,15 +24,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static org.aj.core.preTestInits.CapabilitiesManager.packageName;
 import static org.aj.core.propertiesHandler.PropertiesManager.getProperty;
 
 public class DriverManager {
 
-    private static ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
 
-    private static ThreadLocal<JadbDevice> deviceThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<JadbDevice> deviceThreadLocal = new ThreadLocal<>();
 
-    public static final String automationType = getProperty("automationType");
+    public static String automationType = null;
 
     CapabilitiesManager capabilitiesManager = new CapabilitiesManager();
 
@@ -49,10 +51,9 @@ public class DriverManager {
             deviceList = jadbConnection.getDevices();
             deviceList.forEach(device -> isDeviceAvailable.put(device, true));
 
-            //Fetch all required props
-            new PropertiesManager().getAllProperties();
+            automationType = getProperty("automationType");
 
-        } catch (IOException | JadbException | MissingMandatoryPropException e) {
+        } catch (IOException | JadbException e) {
             throw new RuntimeException(e);
         }
     }
@@ -136,13 +137,25 @@ public class DriverManager {
         return drivers.get();
     }
 
-    public void killDriver() {
-        System.out.println("Killing driver ....");
+    public void killApp() throws UnknownAutomationType {
+        System.out.println("Killing app ....");
 
-        if(drivers.get() != null) {
-            drivers.get().quit();
-            isDeviceAvailable.replace(deviceThreadLocal.get(), true);
-            drivers.remove();
+        switch (automationType){
+            case "android" -> ((AndroidDriver)drivers.get()).terminateApp(packageName);
+            case "ios" -> ((IOSDriver) drivers.get()).terminateApp(packageName);
+            case "web" -> drivers.get().close();
+            default -> throw new UnknownAutomationType(automationType);
+        }
+    }
+
+    public void launchApp() throws UnknownAutomationType{
+        System.out.println("Laaunching app ....");
+
+        switch (automationType){
+            case "android" -> ((AndroidDriver)drivers.get()).activateApp(packageName);
+            case "ios" -> ((IOSDriver) drivers.get()).activateApp(packageName);
+            case "web" -> drivers.get().get(PropertiesManager.getProperty("url"));
+            default -> throw new UnknownAutomationType(automationType);
         }
     }
 }

@@ -13,7 +13,7 @@ public class HomePage {
 
     AppiumWrapper appiumWrapper = new AppiumWrapper();
 
-    String pageName = this.getClass().getName();
+    String pageName = this.getClass().getSimpleName();
 
     public HomePage() throws Exception {
     }
@@ -25,7 +25,7 @@ public class HomePage {
 
         public SearchPage clickOnSearchBar() throws Exception {
             System.out.println("Clicking on search button");
-            appiumWrapper.getElement(pageName, "Bar.TopBar.InputTextfield.Search")
+            appiumWrapper.getElement("Components", "Bar.TopBar.InputTextfield.Search")
                     .click();
 
             return new SearchPage();
@@ -68,12 +68,16 @@ public class HomePage {
             List<WebElement> parentElements = appiumWrapper.getElements(pageName, "Cards.Mails.ParentComponent");
 
             for (WebElement parentElement : parentElements) {
-                String sender = parentElement.findElement(By.id("com.google.android.gm:id/senders")).getText();
-                String subject = parentElement.findElement(By.id("com.google.android.gm:id/subject")).getText();
-                String snippet = parentElement.findElement(By.id("com.google.android.gm:id/snippet")).getText();
-                String date = parentElement.findElement(By.id("com.google.android.gm:id/date")).getText();
+                try {
+                    String sender = parentElement.findElement(By.id("com.google.android.gm:id/senders")).getText();
+                    String subject = parentElement.findElement(By.id("com.google.android.gm:id/subject")).getText();
+                    String snippet = parentElement.findElement(By.id("com.google.android.gm:id/snippet")).getText();
+                    String date = parentElement.findElement(By.id("com.google.android.gm:id/date")).getText();
 
-                result.add(new Mail(sender, subject, snippet, date));
+                    result.add(new Mail(sender, subject, snippet, date));
+                }catch (Exception e){
+                    System.out.println("Retrying with another element...");
+                }
             }
 
             return result;

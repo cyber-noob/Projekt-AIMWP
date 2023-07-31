@@ -1,6 +1,5 @@
 package org.aj.tests;
 
-import org.aj.application.businessLogics.HomePage;
 import org.aj.application.records.Mail;
 import org.aj.core.platformHandlers.Android;
 import org.testng.Assert;
@@ -8,12 +7,12 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class HomePageTest {
+public class HomePage {
 
     @Android
     @Test(groups = {"regression"})
     public void areMailsDisplayed() throws Exception {
-        HomePage homePage = new HomePage();
+        org.aj.application.businessLogics.HomePage homePage = new org.aj.application.businessLogics.HomePage();
 
         List<Mail> mails = homePage.new Mails().getMails();
         Assert.assertTrue(mails.size() > 0, "No mails are displayed");
@@ -22,7 +21,7 @@ public class HomePageTest {
     @Android
     @Test(groups = {"regression"})
     public void searchForMail() throws Exception {
-        HomePage homePage = new HomePage();
+        org.aj.application.businessLogics.HomePage homePage = new org.aj.application.businessLogics.HomePage();
 
         List<Mail> mails = homePage.new Mails().getMails();
 
@@ -34,9 +33,9 @@ public class HomePageTest {
 
 
         Assert.assertTrue(searchResults.stream().anyMatch(mail -> (
-                        mail.sender().contains(searchItem) ||
-                                mail.subject().contains(searchItem) ||
-                                mail.snippet().contains(searchItem)
+                        mail.sender().toLowerCase().contains(searchItem) ||
+                                mail.subject().toLowerCase().contains(searchItem) ||
+                                mail.snippet().toLowerCase().contains(searchItem)
                         )), "Search resuts doesn't contain relevant mail.\nExpected: " + searchItem + "\nFound: " + searchResults);
     }
 }

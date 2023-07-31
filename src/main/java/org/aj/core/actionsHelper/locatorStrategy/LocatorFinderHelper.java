@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.aj.core.actionsHelper.locatorStrategy.LocatorRepoManager.locatorsCache;
 import static org.aj.core.preTestInits.DriverManager.automationType;
@@ -26,9 +27,8 @@ public class LocatorFinderHelper {
     }
 
     public WebElement getElement(String pageName, String jsonPath) throws UnknownAutomationType {
-        String value = locatorsCache.get(pageName)
-                .read(jsonPath + "." + automationType)
-                .toString();
+        Map value = locatorsCache.get(pageName)
+                .read(jsonPath + "." + automationType, Map.class);
 
         JSONObject locatorsJson = new JSONObject(value);
         String locatorStrat = locatorsJson.keys().next();
@@ -37,9 +37,8 @@ public class LocatorFinderHelper {
     }
 
     public List<WebElement> getElements(String pageName, String jsonPath) throws UnknownAutomationType {
-        String value = locatorsCache.get(pageName)
-                .read(jsonPath + "." + automationType)
-                .toString();
+        Map value = locatorsCache.get(pageName)
+                .read(jsonPath + "." + automationType, Map.class);
 
         JSONObject locatorsJson = new JSONObject(value);
         String locatorStrat = locatorsJson.keys().next();

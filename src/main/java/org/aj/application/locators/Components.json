@@ -1,7 +1,6 @@
 {
 	"comment": "Contains all common reusable components across the application",
 	"Bar": {
-
 		"TopBar": {
 			"InputTextfield": {
 				"Search": {

@@ -14,6 +14,8 @@ import static org.aj.core.propertiesHandler.PropertiesManager.getProperty;
 
 public class CapabilitiesManager {
 
+    public static String packageName;
+
     protected DesiredCapabilities AndroidCapabilities(JadbDevice device) throws DtypeException, IOException, JadbException {
         System.out.println("Fetching android capabilties");
 
@@ -27,7 +29,7 @@ public class CapabilitiesManager {
         device.executeShell(packageNames, "pm list packages");
 //        System.out.println(packageName.toString(StandardCharsets.UTF_8));
         List<String> packages = packageNames.toString(StandardCharsets.UTF_8).lines().toList();
-        String packageName = packages.stream()
+        packageName = packages.stream()
                 .filter(pack -> {
                     String[] arr = pack.split("\\.");
                     return arr[arr.length - 1].contains(getProperty("appName"));

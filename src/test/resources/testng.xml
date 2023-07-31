@@ -9,7 +9,7 @@
 
     <test name="Sample Test - 1">
         <classes>
-            <class name="org.aj.tests.HomePageTest"/>
+            <class name="org.aj.tests.HomePage"/>
         </classes>
     </test>
 </suite>

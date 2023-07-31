@@ -4,12 +4,17 @@ import org.aj.core.propertiesHandler.Mandatory;
 
 public class PropsRepo {
 
-    public class Android {
+    public static class Common {
+        @Mandatory
+        public String automationType = "android";
 
         @Mandatory
-        protected String appName;
+        public String groups;
+    }
+
+    public static class Android {
 
         @Mandatory
-        protected String automationType;
+        public String appName;
     }
 }

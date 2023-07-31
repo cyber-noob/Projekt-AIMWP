@@ -4,42 +4,54 @@ import org.aj.application.configs.PropsRepo;
 import org.aj.core.Exceptions.MissingMandatoryPropException;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PropertiesManager {
 
-    static ConcurrentHashMap<String, String> properties = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<String, String> properties = new ConcurrentHashMap<>();
 
     public void getAllProperties() throws MissingMandatoryPropException {
         System.out.println("Fetching all properties ....");
         Class<?>[] classes = PropsRepo.class.getDeclaredClasses();
-        List<Field> fields = new ArrayList<>();
 
         for (Class<?> aClass : classes) {
-            fields.addAll(List.of(aClass.getDeclaredFields()));
-        }
+            List<Field> fields = List.of(aClass.getDeclaredFields());
 
-        for (Field field : fields) {
-            String fieldValue = System.getenv(field.getName());
-            System.out.println("field -> " + field.getName());
+            for (Field field : fields) {
+                field.setAccessible(true);
+                String fieldValue = null;
+                
+                try {
+                    fieldValue = (String) field.get(aClass.getConstructor().newInstance());
+                } catch (IllegalAccessException e) {
+                    System.out.println("Unable to fetch Field value. Field -> " + field);
+                    e.printStackTrace();
+                } catch (InvocationTargetException | InstantiationException | NoSuchMethodException e) {
+                    throw new RuntimeException(e);
+                }
 
-            if(isMandatoryField(field) && (fieldValue == null || fieldValue.length() == 0))
-                throw new MissingMandatoryPropException(field.getName() + " is missing");
+                String envVal = System.getenv(field.getName());
+                if(envVal != null && envVal.length() > 0)
+                    fieldValue = System.getenv(field.getName());
+                
+                System.out.println("field -> " + field.getName());
 
-            properties.put(field.getName(), fieldValue);
+                if(isMandatoryField(field) && (fieldValue == null || fieldValue.length() == 0))
+                    throw new MissingMandatoryPropException(field.getName() + " is missing");
+
+                properties.put(field.getName(), fieldValue);
+            }
         }
 
         System.out.println("DONE >> " + properties);
     }
 
     private boolean isMandatoryField(Field field) {
-        if(field.isAnnotationPresent(Mandatory.class))
-            return true;
-        return false;
+        return field.isAnnotationPresent(Mandatory.class);
     }
 
     public static String getProperty(String prop){

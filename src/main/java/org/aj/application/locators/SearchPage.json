@@ -1,0 +1,17 @@
+{
+	"Bar": {
+		"TopBar": {
+			"InputTextfield": {
+				"Search": {
+					"android": {
+						"id": "com.google.android.gm:id/open_search_view_edit_text"
+					},
+					"ios": {
+					},
+					"web": {
+					}
+				}
+			}
+		}
+	}
+}

@@ -13,7 +13,7 @@ import org.aj.core.actionsHelper.locatorStrategy.LocatorFinderHelper;
  */
 public class SearchPage {
 
-    String pageName = this.getClass().getName();
+    String pageName = this.getClass().getSimpleName();
 
     AppiumWrapper appiumWrapper = new AppiumWrapper();
 
@@ -32,7 +32,7 @@ public class SearchPage {
             System.out.println("Typing " + text + " on searchbar");
 
             //Fetching element from re-usable page
-            appiumWrapper.getElement("Components", "Bar.TopBar.InputTextfield.Search")
+            appiumWrapper.getElement(pageName, "Bar.TopBar.InputTextfield.Search")
                     .sendKeys(text);
 
             return new SearchPage().new SearchBarfeature();
