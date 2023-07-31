@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e02ac46f-9985-479c-904b-e32b6aa0dcb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/locators/SearchPage.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/Flow diagram.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/configs/PropsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/configs/PropsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/pages/SearchPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorFinderHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorFinderHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorRepoManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/actionsHelper/locatorStrategy/LocatorRepoManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/listeners/CustomerTestListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/CapabilitiesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/preTestInits/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aj/core/propertiesHandler/PropertiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/core/propertiesHandler/PropertiesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/locators/Components.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/locators/Components.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/locators/HomePage.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aj/application/locators/HomePage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/aj/tests/HomePageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aj/tests/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,21 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ajay/EasyAppAutomationJava&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/ajay/EasyAppAutomationJava/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "last_opened_file_path": "/home/ajay/EasyAppAutomationJava/imgs",
+    "onboarding.tips.debug.path": "/home/ajay/EasyAppAutomationJava/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "terminal"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/imgs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/locators" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
