@@ -1,10 +1,15 @@
 # SAHybridFramework
+![appium version](https://img.shields.io/badge/appium-2.0.1-brightgreen)
+![appium:java-client version](https://img.shields.io/badge/appium_java_client-2.0.5-brightgreen)
+![selenium version](https://img.shields.io/badge/selenium-4.10.0-brightgreen)
 
-A hybrid framework that supports
-* Android
-* IOS
-* WEB
-* MSITE
+A hybrid framework that supports  
+
+:superhero: Android  
+:superhero: IOS  
+:superhero: WEB  
+:superhero: MSITE  
+:superhero: PWA  
 
 ui automation in a single repo.
 
