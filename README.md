@@ -167,7 +167,7 @@ Similar to page and business logic layer, Test classes are grouped wrt their fea
 all it taskes is a single annotation to disable a bunch of testcases retaining clean code.
 
 More over every testcase is annotated with the platform specific annotation so that we don't miss out running a testcase for a platform by a silly spelling mistake.
-More over annotations provide great readability over using tags which will definitely become a chore in terms of maintenance as that will become an n-n mapping where
+More over annotations provide great readability over using tags which will definitely become a chore in terms of maintenance as that will become an n-n mapping where  
 n -> platforms  
 n -> suite
 
