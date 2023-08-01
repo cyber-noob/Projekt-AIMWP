@@ -1,4 +1,4 @@
-# SAHybridFramework
+# Projekt-AIMWP
 ![appium version](https://img.shields.io/badge/appium-2.0.1-brightgreen)
 ![appium:java-client version](https://img.shields.io/badge/appium_java_client-2.0.5-brightgreen)
 ![selenium version](https://img.shields.io/badge/selenium-4.10.0-brightgreen)
@@ -40,7 +40,7 @@ Our first and foremost thing to concentrate before an automation run starts will
 
 Down below is a small flow diagram that sketches out the design for some quick reference
 
-![ScreenShot](imgs/Flow diagram.png)
+![imgs/Flow diagram.png](https://github.com/cyber-noob/Projekt-AIMWP/blob/master/imgs/Flow%20diagram.png?raw=true)
 
 #### Properties Handling
 
