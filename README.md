@@ -40,7 +40,7 @@ Our first and foremost thing to concentrate before an automation run starts will
 
 Down below is a small flow diagram that sketches out the design for some quick reference
 
-![imgs/Flow diagram.png](https://github.com/cyber-noob/Projekt-AIMWP/blob/master/imgs/Flow%20diagram.png?raw=true)
+![Flow diagram.png](https://github.com/cyber-noob/Projekt-AIMWP/blob/master/imgs/Flow%20diagram.png)
 
 #### Properties Handling
 
