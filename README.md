@@ -40,7 +40,7 @@ Our first and foremost thing to concentrate before an automation run starts will
 
 Down below is a small flow diagram that sketches out the design for some quick reference
 
-![Flow diagram.png](https://github.com/cyber-noob/Projekt-AIMWP/blob/master/imgs/Flow%20diagram.png)
+![Flow diagram](imgs/Flow.jpg)
 
 #### Properties Handling
 
@@ -56,7 +56,24 @@ own inner classes with respect to the property roles and are annotated with @Man
 
 Here's an example below:
 
-https://github.com/cyber-noob/SAHybridFramework/blob/3858564692b171db3222ec939b246146c34798a5/src/main/java/org/aj/application/configs/PropsRepo.java#L2
+```java
+public class PropsRepo {
+
+    public static class Common {
+        @Mandatory
+        public String automationType = "android";
+
+        @Mandatory
+        public String groups;
+    }
+
+    public static class Android {
+
+        @Mandatory
+        public String appName;
+    }
+}
+```
 
 Here you might also take note that we can define the default value of a variable but 
 keep in mind that any sys prop with the same name will override the default values!
